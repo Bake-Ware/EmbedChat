@@ -11,10 +11,20 @@
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
+      .chatContainer{
+        overflow:scroll;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        bottom: 24px;
+     }
     </style>
   </head>
   <body>
-    <ul id="messages"></ul>
+    <div class="chatContainer">
+      <ul id="messages"></ul>
+    </div>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -24,12 +34,16 @@
       var username = prompt("Enter a username");
       var socket = io();
       $('form').submit(function(){
-        socket.emit('chat message', username + ": " + $('#m').val());
-        $('#m').val('');
+        if($('#m').val() != "")
+        {
+          socket.emit('chat message', username + ": " + $('#m').val());
+          $('#m').val('');
+        }
         return false;
       });
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
+        $(".chatContainer").scrollTop($(".chatContainer")[0].scrollHeight);
       });
     </script>
   </body>
