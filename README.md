@@ -11,3 +11,6 @@ https://desktop.github.com/
 
 # Official Releases
 http://www.bakewarez.com/
+
+# Other Client Implementations
+c# .Net - https://github.com/jamixzol/EmbedChatSharp
