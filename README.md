@@ -8,3 +8,6 @@ Brackets
 http://brackets.io/
 GitHub desktop client
 https://desktop.github.com/
+
+# Official Releases
+http://www.bakewarez.com/
